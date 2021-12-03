@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 
-const drawerWidth = 170;
+const drawerWidth = 180;
 
 function Admin(props) {
   const { window } = props;
@@ -26,7 +26,7 @@ function Admin(props) {
     <div>
       <Toolbar />
       <Divider />
-      <NavLink style={{ textDecoration: "none" }} to="/manageAllOrder">
+      <NavLink style={{ textDecoration: "none" }} to="/allOrderStatus">
         <Button
           sx={{
             my: 2,
@@ -64,6 +64,19 @@ function Admin(props) {
           Create Admin
         </Button>
       </NavLink>
+      <NavLink style={{ textDecoration: "none" }} to="/manageProduct">
+        <Button
+          sx={{
+            my: 2,
+            ml: 1,
+            color: "secondary.main",
+            fw: 800,
+            display: "block",
+          }}
+        >
+          Manage Products
+        </Button>
+      </NavLink>
       <NavLink style={{ textDecoration: "none" }} to="/logout">
         <Button
           sx={{
@@ -95,6 +108,7 @@ function Admin(props) {
           textAlign: "cenetr",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          height: "69px",
         }}
       >
         <Toolbar>
@@ -108,7 +122,7 @@ function Admin(props) {
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="div"
             sx={{ textAlign: "center", margin: "auto" }}

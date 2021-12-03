@@ -96,6 +96,7 @@ function Dashboard(props) {
           textAlign: "cenetr",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          height: "69px",
         }}
       >
         <Toolbar>

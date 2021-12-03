@@ -10,6 +10,10 @@ import Admin from "./Pages/Admin/Admin";
 import Pay from "./Pages/Dashboard/Pay/Pay";
 import MyOrder from "./Pages/Dashboard/MyOrder/MyOrder";
 import Review from "./Pages/Dashboard/Review/Review";
+import AllOrder from "./Pages/Admin/AllOrder/AllOrder";
+import CreateAdmin from "./Pages/Admin/CreateAdmin/CreateAdmin";
+import AddProduct from "./Pages/Admin/AddProduct/AddProduct";
+import ManageProduct from "./Pages/Admin/ManageProduct/ManageProduct";
 
 function App() {
   return (
@@ -43,6 +47,18 @@ function App() {
         </Route>
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route path="/allOrderStatus">
+          <AllOrder />
+        </Route>
+        <Route path="/addProduct">
+          <AddProduct />
+        </Route>
+        <Route path="/createAdmin">
+          <CreateAdmin />
+        </Route>
+        <Route path="/manageProduct">
+          <ManageProduct />
         </Route>
         <Route path="/logout">
           <Admin />
