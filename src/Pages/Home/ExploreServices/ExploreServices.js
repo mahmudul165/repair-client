@@ -26,6 +26,7 @@ const ExploreServices = () => {
   const [services] = useServices();
   return (
     <Container>
+      <h3 className="auto my-4 text-center">Explore All Services</h3>
       <Grid container spacing={2}>
         {services.map((service) => (
           <>

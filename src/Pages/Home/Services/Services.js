@@ -26,7 +26,7 @@ const Services = () => {
   const itemService = services.filter((item) => item.id <= 6);
   return (
     <Container>
-      <h2>my 6 services</h2>
+      <h3 className="auto my-4 text-center">All Services that We Provide</h3>
       <Grid container spacing={2}>
         {itemService.map((service) => (
           <>

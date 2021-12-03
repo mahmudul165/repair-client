@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 const Banner = () => {
   var items = [
     {
-      img: "https://i.ibb.co/R48cYc5/Vector-illustration-of-a-modern-bicycle-in-the-style-of-engraving.jpg",
+      img: "https://i.postimg.cc/T3cb0PWr/Beep-Beep-Bicycle.png",
       name: "Love every ride",
       description:
         "Four wheels move the body, and two wheels move the soul. If you have never owned one, you will never understand. A bike on the road is worth two in the shed.",

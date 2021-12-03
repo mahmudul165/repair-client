@@ -14,6 +14,7 @@ import AllOrder from "./Pages/Admin/AllOrder/AllOrder";
 import CreateAdmin from "./Pages/Admin/CreateAdmin/CreateAdmin";
 import AddProduct from "./Pages/Admin/AddProduct/AddProduct";
 import ManageProduct from "./Pages/Admin/ManageProduct/ManageProduct";
+import About from "./Pages/Home/About/About";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home />
+        </Route>
+        <Route path="/about">
+          <About />
         </Route>
         <Route path="/exploreServices">
           <ExploreServices />
