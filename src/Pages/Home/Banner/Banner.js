@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import { AwesomeButton } from "react-awesome-button";
 
 import "react-awesome-button/dist/themes/theme-blue.css";
+import { NavLink } from "react-router-dom";
 const Banner = () => {
   var items = [
     {
@@ -78,20 +79,22 @@ const Banner = () => {
                   {item.description}
                 </Typography>
 
-                <Typography
-                  my={1}
-                  py={2}
-                  style={{ textAlign: "center" }}
-                  component="div"
-                >
-                  <AwesomeButton
-                    className="aws-btn"
-                    type="secondary"
-                    size="large"
+                <NavLink to="/exploreServices">
+                  <Typography
+                    my={1}
+                    py={2}
+                    style={{ textAlign: "center" }}
+                    component="div"
                   >
-                    Explore
-                  </AwesomeButton>
-                </Typography>
+                    <AwesomeButton
+                      className="aws-btn"
+                      type="secondary"
+                      size="large"
+                    >
+                      Explore
+                    </AwesomeButton>
+                  </Typography>
+                </NavLink>
               </Grid>
             </Grid>
           </Container>

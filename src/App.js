@@ -1,20 +1,41 @@
- 
-import './App.css';
-import Home from './Pages/Home/Home';
- 
+import "./App.css";
+import Home from "./Pages/Home/Home";
+import Navbar from "./Pages/Shared/Navbar/Navbar";
+import Footer from "./Pages/Shared/Footer/Footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ExploreServices from "./Pages/Home/ExploreServices/ExploreServices";
+import Services from "./Pages/Home/Services/Services";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Admin from "./Pages/Admin/Admin";
 
 function App() {
   return (
-    <div className="App">
-      <Home/> 
-    </div>
+    <Router>
+      <Navbar />
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route path="/exploreServices">
+          <ExploreServices />
+        </Route>
+        <Route path="/services">
+          <Services />
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
+        </Route>
+        <Route path="/admin">
+          <Admin />
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 
 export default App;
-
-
-{/* <img src="https://i.ibb.co/R48cYc5/Vector-illustration-of-a-modern-bicycle-in-the-style-of-engraving.jpg" alt="Vector-illustration-of-a-modern-bicycle-in-the-style-of-engraving" border="0">
-<img src="https://i.ibb.co/kJD93Zk/Dayflow-Riding.png" alt="Dayflow-Riding" border="0">
-<img src="https://i.ibb.co/M1r4p4R/Open-Peeps-Sitting.png" alt="Open-Peeps-Sitting" border="0">
-<img src="https://i.ibb.co/nLNnm0P/c-2.jpg" alt="c-2" border="0"></img> */}

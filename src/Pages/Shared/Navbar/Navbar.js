@@ -11,6 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { NavLink } from "react-router-dom";
 const pages = [
   "Home",
   "About",
@@ -48,14 +49,16 @@ const Navbar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            Bicycleo
-          </Typography>
+          <NavLink style={{ textDecoration: "none" }} to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              Bicycleo
+            </Typography>
+          </NavLink>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -102,7 +105,7 @@ const Navbar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, ml: 4, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -116,7 +119,79 @@ const Navbar = () => {
               >
                 {page}
               </Button>
-            ))}
+
+            ))} */}
+
+            <NavLink style={{ textDecoration: "none" }} to="/home">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  ml: 4,
+                  color: "secondary.main",
+                  fw: 800,
+                  display: "block",
+                }}
+              >
+                Home
+              </Button>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/about">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  ml: 4,
+                  color: "secondary.main",
+                  fw: 800,
+                  display: "block",
+                }}
+              >
+                About
+              </Button>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/services">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  ml: 4,
+                  color: "secondary.main",
+                  fw: 800,
+                  display: "block",
+                }}
+              >
+                Services
+              </Button>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/dashboard">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  ml: 4,
+                  color: "secondary.main",
+                  fw: 800,
+                  display: "block",
+                }}
+              >
+                Dashboard
+              </Button>
+            </NavLink>
+            <NavLink style={{ textDecoration: "none" }} to="/admin">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  ml: 4,
+                  color: "secondary.main",
+                  fw: 800,
+                  display: "block",
+                }}
+              >
+                Admin
+              </Button>
+            </NavLink>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
