@@ -11,7 +11,17 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-const pages = ["Home", "About", "Service", "Blogs", "Contact"];
+const pages = [
+  "Home",
+  "About",
+  "Service",
+  "Blogs",
+  "Contact",
+  "Review",
+  "Dashboard",
+  "Admin",
+  "Login",
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
