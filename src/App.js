@@ -7,6 +7,9 @@ import ExploreServices from "./Pages/Home/ExploreServices/ExploreServices";
 import Services from "./Pages/Home/Services/Services";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Admin from "./Pages/Admin/Admin";
+import Pay from "./Pages/Dashboard/Pay/Pay";
+import MyOrder from "./Pages/Dashboard/MyOrder/MyOrder";
+import Review from "./Pages/Dashboard/Review/Review";
 
 function App() {
   return (
@@ -29,7 +32,19 @@ function App() {
         <Route path="/dashboard">
           <Dashboard />
         </Route>
+        <Route path="/pay">
+          <Pay />
+        </Route>
+        <Route path="/myOrder">
+          <MyOrder />
+        </Route>
+        <Route path="/review">
+          <Review />
+        </Route>
         <Route path="/admin">
+          <Admin />
+        </Route>
+        <Route path="/logout">
           <Admin />
         </Route>
       </Switch>
