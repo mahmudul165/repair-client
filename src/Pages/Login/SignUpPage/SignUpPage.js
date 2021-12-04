@@ -37,15 +37,8 @@ function Copyright(props) {
 }
 const theme = createTheme();
 export default function SignUpPage() {
-  const {
-    user,
-    isLoading,
-    authError,
-    registerUser,
-    loginUser,
-    loginWithGoogle,
-    logout,
-  } = useAuth();
+  const { user, isLoading, authError, registerUser, loginWithGoogle, logout } =
+    useAuth();
   const [loginData, setLoginData] = useState({});
   const history = useHistory();
   const handleSubmit = (event) => {
@@ -61,7 +54,6 @@ export default function SignUpPage() {
     const newLoginData = { ...loginData };
     console.log(newLoginData);
     setLoginData(newLoginData);
-    alert("successfully signup");
   };
 
   return (
@@ -146,6 +138,7 @@ export default function SignUpPage() {
               </Grid>
             </Grid>
           </Box>
+          <h5>{authError}</h5>
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>

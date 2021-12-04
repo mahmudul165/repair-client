@@ -13,6 +13,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import useAuth from "../../Hook/useAuth";
+import { useLocation } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -35,6 +39,11 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LoginPage() {
+  const { user, isLoading, authError, loginUser, loginWithGoogle, logout } =
+    useAuth();
+  const [loginData, setLoginData] = useState({});
+  const location = useLocation();
+  const history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -42,8 +51,11 @@ export default function LoginPage() {
       email: data.get("email"),
       password: data.get("password"),
     };
+    loginUser(info?.email, info?.password, location, history);
     console.log("my info is", info);
-    alert("successfully signup");
+    const newLoginData = { ...loginData };
+    console.log(newLoginData);
+    setLoginData(newLoginData);
   };
 
   return (
@@ -115,6 +127,7 @@ export default function LoginPage() {
               </Grid>
             </Grid>
           </Box>
+          <h5>{authError}</h5>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>

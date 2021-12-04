@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../Hook/useAuth";
 const pages = [
   "Home",
   "About",
@@ -27,6 +28,8 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { user, isLoading, authError, registerUser, loginWithGoogle, logout } =
+    useAuth();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -105,23 +108,6 @@ const Navbar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, ml: 4, display: { xs: "none", md: "flex" } }}>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  ml: 4,
-                  color: "secondary.main",
-                  fw: 800,
-                  display: "block",
-                }}
-              >
-                {page}
-              </Button>
-
-            ))} */}
-
             <NavLink style={{ textDecoration: "none" }} to="/home">
               <Button
                 onClick={handleCloseNavMenu}
@@ -193,30 +179,14 @@ const Navbar = () => {
               </Button>
             </NavLink>
           </Box>
-          {/* here is authentication part (login ,logout) */}
-          <NavLink
-            style={{
-              textDecoration: "none",
-              marginRight: "5px",
-            }}
-            to="/login"
-          >
-            <Button
-              sx={{
-                my: 2,
-                color: "secondary.main",
-                fw: 800,
-                display: "block",
-              }}
-              onClick={handleCloseNavMenu}
-            >
-              Login
-            </Button>
-          </NavLink>
+
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="User settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt={user.displayName}
+                  src="/static/images/avatar/2.jpg"
+                />
               </IconButton>
             </Tooltip>
             <Menu
@@ -235,11 +205,66 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
+              <MenuItem>
+                {/* here is authentication part (login ,logout) */}
+                {!user?.email ? (
+                  <Box>
+                    <NavLink
+                      style={{
+                        textDecoration: "none",
+                        marginRight: "5px",
+                      }}
+                      to="/login"
+                    >
+                      <Button
+                        sx={{
+                          my: 2,
+                          color: "secondary.main",
+                          fw: 800,
+                          display: "block",
+                        }}
+                        onClick={handleCloseNavMenu}
+                      >
+                        Login
+                      </Button>
+                    </NavLink>
+                  </Box>
+                ) : (
+                  <Box textAlign="center" my={2}>
+                    <Typography my={2} variant="h6" noWrap>
+                      {user.displayName}
+                    </Typography>
+                    <Typography variant="h6" noWrap>
+                      {user.email}
+                    </Typography>
+
+                    <NavLink
+                      style={{
+                        textDecoration: "none",
+                        textAlign: "center",
+                        margin: "auto",
+                      }}
+                      to="/"
+                    >
+                      <Button
+                        sx={{
+                          my: 2,
+                          color: "secondary.main",
+                          fw: 800,
+                        }}
+                        onClick={logout}
+                      >
+                        Logout
+                      </Button>
+                    </NavLink>
+                  </Box>
+                )}
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
