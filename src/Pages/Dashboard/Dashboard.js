@@ -11,12 +11,14 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
+import useAuth from "../Hook/useAuth";
 
 const drawerWidth = 100;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { logout } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -65,8 +67,9 @@ function Dashboard(props) {
           Review
         </Button>
       </NavLink>
-      <NavLink style={{ textDecoration: "none" }} to="/logout">
+      <NavLink style={{ textDecoration: "none" }} to="/">
         <Button
+          onClick={logout}
           sx={{
             my: 2,
             ml: 1,
@@ -78,6 +81,7 @@ function Dashboard(props) {
           Logout
         </Button>
       </NavLink>
+
       {/* "Pay", "MyOrder", "Review", "Logout" */}
     </div>
   );

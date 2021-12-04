@@ -20,6 +20,7 @@ import SignUpPage from "./Pages/Login/SignUpPage/SignUpPage";
 import LoginPage from "./Pages/Login/LoginPage/LoginPage";
 import NotFound from "./Pages/NotFound/NotFound";
 import AuthProvider from "./Pages/contexts/AuthProvider/AuthProvider";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -42,9 +43,9 @@ function App() {
           <Route path="/services">
             <Services />
           </Route>
-          <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard />
-          </Route>
+          </PrivateRoute>
           <Route path="/pay">
             <Pay />
           </Route>
@@ -54,9 +55,9 @@ function App() {
           <Route path="/review">
             <Review />
           </Route>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <Admin />
-          </Route>
+          </PrivateRoute>
           <Route path="/allOrderStatus">
             <AllOrder />
           </Route>
