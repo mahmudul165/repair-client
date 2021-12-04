@@ -27,7 +27,7 @@ const ExploreServices = () => {
   return (
     <Container>
       <h3 className="auto my-4 text-center">Explore All Services</h3>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} my={2}>
         {services.map((service) => (
           <>
             <Grid item xs={12} md={4}>
@@ -35,19 +35,19 @@ const ExploreServices = () => {
                 <CardMedia
                   component="img"
                   alt="green iguana"
-                  image="https://i.ibb.co/M1r4p4R/Open-Peeps-Sitting.png"
+                  image={service.img}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     {service.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {service.username}
+                    {service.description}
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">{service.phone}</Button>
-                  <Button size="small">Learn More</Button>
+                  <Button size="small">{service.price}</Button>
+                  <Button size="small">Order Now</Button>
                 </CardActions>
               </Card>
             </Grid>
