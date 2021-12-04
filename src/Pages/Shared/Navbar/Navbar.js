@@ -193,7 +193,26 @@ const Navbar = () => {
               </Button>
             </NavLink>
           </Box>
-
+          {/* here is authentication part (login ,logout) */}
+          <NavLink
+            style={{
+              textDecoration: "none",
+              marginRight: "5px",
+            }}
+            to="/login"
+          >
+            <Button
+              sx={{
+                my: 2,
+                color: "secondary.main",
+                fw: 800,
+                display: "block",
+              }}
+              onClick={handleCloseNavMenu}
+            >
+              Login
+            </Button>
+          </NavLink>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
