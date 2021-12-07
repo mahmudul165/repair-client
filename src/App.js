@@ -21,6 +21,7 @@ import LoginPage from "./Pages/Login/LoginPage/LoginPage";
 import NotFound from "./Pages/NotFound/NotFound";
 import AuthProvider from "./Pages/contexts/AuthProvider/AuthProvider";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import Order from "./Pages/Order/Order";
 
 function App() {
   return (
@@ -70,6 +71,9 @@ function App() {
           <Route path="/manageProduct">
             <ManageProduct />
           </Route>
+          <PrivateRoute path="/order/:Id">
+            <Order />
+          </PrivateRoute>
           <Route path="/login">
             <LoginPage />
           </Route>

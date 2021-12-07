@@ -6,10 +6,10 @@ const useServices = () => {
   useEffect(() => {
     axios.get(`http://localhost:5000/services`).then((res) => {
       setServices(res.data);
-      console.log("my services is", services);
+      // console.log("my services is", services);
     });
   }, []);
-  return [services];
+  return [services, setServices];
 };
 
 export default useServices;
