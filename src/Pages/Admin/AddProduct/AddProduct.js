@@ -34,7 +34,7 @@ const AddProduct = () => {
             </h3>
 
             <Form
-              className="w-50 text-center m-auto p-2 m-2"
+              className="w-75 text-center m-auto p-2 m-2"
               onSubmit={handleSubmit(onSubmit)}
             >
               <Form.Group

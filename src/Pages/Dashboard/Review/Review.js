@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import useAuth from "../../Hook/useAuth";
 import useReviews from "../../Hook/useReviews";
 
 const Review = () => {
+  const { user } = useAuth();
   const [reviews] = useReviews();
   const {
     register,
@@ -14,7 +16,8 @@ const Review = () => {
   const id = 0;
   const axios = require("axios").default;
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("data from singleuser", (data.name = user.displayName));
+    console.log("my data review", data);
     axios.post(`http://localhost:5000/reviews`, data).then((res) => {
       // /${(id = services.length + 1)}
       console.log(res);
@@ -34,7 +37,7 @@ const Review = () => {
             </h3>
 
             <Form
-              className="w-50 text-center m-auto p-2 m-2"
+              className="w-75 text-center m-auto p-2 m-2"
               onSubmit={handleSubmit(onSubmit)}
             >
               <Form.Group
@@ -47,9 +50,11 @@ const Review = () => {
                 </Form.Label>
                 <Col sm="10">
                   <Form.Control
-                    {...register("name", { required: true })}
+                    disabled
+                    {...register("name")}
                     type="text"
-                    placeholder="Type Your Service Name"
+                    placeholder="Type Your Name"
+                    defaultValue={user.displayName}
                   />
                 </Col>
               </Form.Group>
@@ -75,13 +80,13 @@ const Review = () => {
                 controlId="formPlaintextPassword"
               >
                 <Form.Label column sm="2">
-                  price
+                  star
                 </Form.Label>
                 <Col sm="10">
                   <Form.Control
-                    {...register("price")}
-                    type="number"
-                    placeholder="price"
+                    {...register("star")}
+                    type="text"
+                    placeholder="give star number (0-5)"
                   />
                 </Col>
               </Form.Group>
@@ -96,8 +101,8 @@ const Review = () => {
                 <Col sm="10">
                   <Form.Control
                     {...register("img")}
-                    type="text"
-                    placeholder="image url"
+                    placeholder="your profile picture"
+                    defaultValue={user.photoURL}
                   />
                 </Col>
               </Form.Group>

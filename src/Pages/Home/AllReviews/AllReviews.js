@@ -1,74 +1,90 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Container,
-  Typography,
-} from "@mui/material";
-
-// import { NavLink } from "react-router-dom";
-// import AwesomeButton from "react-awesome-button";
-// import "react-awesome-button/dist/themes/theme-blue.css";
+import Rating from "@mui/material/Rating";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import "./AllReviews.css";
 import { Link } from "react-router-dom";
+import { Container, Paper, styled } from "@mui/material";
 import useReviews from "../../Hook/useReviews";
-
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-
-const Explorereviews = () => {
+const AllReviews = () => {
   const [reviews] = useReviews();
+
+  const options = {
+    loop: true,
+    center: true,
+    items: 3,
+    margin: 0,
+    autoplay: true,
+    dots: true,
+    autoplayTimeout: 8500,
+    smartSpeed: 450,
+    nav: false,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 3,
+      },
+      1000: {
+        items: 3,
+      },
+    },
+  };
+  console.log("my reviews is ", reviews);
   return (
     <Container>
       <h3 className="auto my-4 text-center">All Testimonial</h3>
-      <Grid container spacing={2} my={2}>
-        {reviews.map((review) => (
-          <>
-            <Grid key={review._id} item xs={12} md={4}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
-                  component="img"
-                  alt="green iguana"
-                  image={review.img}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {review.name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {review.description}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small">
-                    <i class="fas fa-dollar-sign"></i> {review.price}
-                  </Button>
-
-                  {/* <Link
-                    style={{ textAlign: "center", textDecoration: "none" }}
-                    to={`/order/${service._id}`}
-                  >
-                    <Button size="small">Order Now</Button>
-                  </Link> */}
-                  {/* {`/order/${_id}`} */}
-                </CardActions>
-              </Card>
-            </Grid>
-          </>
-        ))}
-      </Grid>
+      <section id="testimonial" className="testimonials pt-70 pb-70">
+        <div className="container mt-5">
+          <h4 className="miniTitle text-center">TESTIMONIALS</h4>
+          <div className="text-center ">
+            <h3 className="sectionTitle">What Our Clients are Saying?</h3>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <OwlCarousel
+                id="customer-testimonoals"
+                className="owl-carousel owl-theme"
+                {...options}
+              >
+                {reviews.map((review) => (
+                  <>
+                    <div key={review._id} className="item">
+                      <div className="shadow-effect">
+                        <img className="img-circle" src={review.img} />
+                        <p>{review.description}</p>
+                      </div>
+                      <div className="testimonial-name">
+                        <h5>{review.name}</h5>
+                        <Stack spacing={1}>
+                          <Rating
+                            name="half-rating-read"
+                            defaultValue={parseFloat(review.star)}
+                            precision={0.5}
+                            readOnly
+                          />
+                        </Stack>
+                      </div>
+                    </div>
+                  </>
+                ))}
+              </OwlCarousel>
+            </div>
+          </div>
+        </div>
+      </section>
     </Container>
   );
 };
-
-export default ExploreServices;
+export default AllReviews;
