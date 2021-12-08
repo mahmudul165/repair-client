@@ -26,11 +26,11 @@ const Footer = () => {
             <h6>Categories</h6>
             <ul className="footer-links">
               <li>
-                <a href="#">Food</a>
+                <a href="#">Home</a>
               </li>
 
               <li>
-                <a href="#">Ingredient</a>
+                <a href="#">Service</a>
               </li>
               <li>
                 <a href="#">Item</a>
