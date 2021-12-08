@@ -9,10 +9,9 @@ import { Box, Container, Typography } from "@mui/material";
 export default function About() {
   return (
     <>
-      <h2 className="auto text-center my-4">About Us</h2>
-      <h2 className="auto text-center my-4 fw-500">
+      <h4 className="auto text-center my-4 fw-500 text-warning">
         Why Choose Us For Repair ?
-      </h2>
+      </h4>
       <Grid container spacing={1} my={4} sx={{ alignItems: "center" }}>
         <Grid
           item

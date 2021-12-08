@@ -30,7 +30,9 @@ const ExploreServices = () => {
   const [services] = useServices();
   return (
     <Container>
-      <h3 className="auto my-4 text-center">Explore All Services</h3>
+      <h3 className="auto my-4 text-center text-primary">
+        Explore All Services
+      </h3>
       <Grid container spacing={2} my={2}>
         {services.map((service) => (
           <>

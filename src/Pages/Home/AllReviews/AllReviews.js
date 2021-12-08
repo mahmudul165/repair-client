@@ -44,12 +44,13 @@ const AllReviews = () => {
   console.log("my reviews is ", reviews);
   return (
     <Container>
-      <h3 className="auto my-4 text-center">All Testimonial</h3>
+      <h3 className="auto my-4 text-center text-primary">All Testimonial</h3>
       <section id="testimonial" className="testimonials pt-70 pb-70">
         <div className="container mt-5">
-          <h4 className="miniTitle text-center">TESTIMONIALS</h4>
           <div className="text-center ">
-            <h3 className="sectionTitle">What Our Clients are Saying?</h3>
+            <h4 className="sectionTitle text-warning">
+              What Our Clients are Saying?
+            </h4>
           </div>
           <div className="row">
             <div className="col-md-12">

@@ -13,8 +13,8 @@ const Contract = () => {
     <div className="contract-img  text-primary my-3 ">
       <div className="container m-auto     ">
         <div className="text-center p-4 m-3">
-          <h5 className="p-3">CONTACT US</h5>
-          <h2>Always Connect With Us</h2>
+          <h4 className="p-3">CONTACT US</h4>
+          <h4 className="text-warning">Always Connect With Us</h4>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-3  ">

@@ -55,7 +55,9 @@ const Services = () => {
 
   return (
     <Container>
-      <h3 className="auto my-4 text-center">All Services that We Provide</h3>
+      <h4 className="auto my-4 text-center text-primary">
+        All Services that We Provide
+      </h4>
       <Grid id="demo" container my={2} spacing={2}>
         {itemService.map((service) => (
           <>
