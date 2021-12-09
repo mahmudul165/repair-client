@@ -17,7 +17,7 @@ const Order = () => {
   const [singleUser, setsingleUser] = useState({});
   const [order, setorder] = useState({});
   useEffect(async () => {
-    await fetch(`http://localhost:5000/services/${Id}`)
+    await fetch(`https://shielded-forest-05561.herokuapp.com/services/${Id}`)
       .then((res) => res.json())
       .then((data) => setsingleUser(data));
   }, [singleUser]);
@@ -29,7 +29,7 @@ const Order = () => {
     );
     await console.log("my order data", data);
     axios
-      .post("http://localhost:5000/orders", {
+      .post("https://shielded-forest-05561.herokuapp.com/orders", {
         data,
         status: "pending",
       })

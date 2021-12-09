@@ -7,16 +7,21 @@ const MyOrder = () => {
   const { user } = useAuth();
   const [orders, setOrder] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/orders`)
+    fetch(`https://shielded-forest-05561.herokuapp.com/orders`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [orders]);
   const handleDelete = (id) => {
     alert("Are You Sure To DELETE this ORDER");
-    axios.delete(`http://localhost:5000/orders/${id}`, orders).then((res) => {
-      const remaining = orders.filter((order) => order._id !== id);
-      setOrder(remaining);
-    });
+    axios
+      .delete(
+        `https://shielded-forest-05561.herokuapp.com/orders/${id}`,
+        orders
+      )
+      .then((res) => {
+        const remaining = orders.filter((order) => order._id !== id);
+        setOrder(remaining);
+      });
   };
   // react animation
 

@@ -15,14 +15,16 @@ const AddProduct = () => {
   const axios = require("axios").default;
   const onSubmit = (data) => {
     console.log(data);
-    axios.post(`http://localhost:5000/services`, data).then((res) => {
-      // /${(id = services.length + 1)}
-      console.log(res);
-      if (res.data.insertedId) {
-        alert("Data added successfully");
-        reset();
-      }
-    });
+    axios
+      .post(`https://shielded-forest-05561.herokuapp.com/services`, data)
+      .then((res) => {
+        // /${(id = services.length + 1)}
+        console.log(res);
+        if (res.data.insertedId) {
+          alert("Data added successfully");
+          reset();
+        }
+      });
   };
   return (
     <Container>

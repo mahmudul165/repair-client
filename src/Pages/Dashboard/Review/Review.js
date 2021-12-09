@@ -18,14 +18,16 @@ const Review = () => {
   const onSubmit = (data) => {
     console.log("data from singleuser", (data.name = user.displayName));
     console.log("my data review", data);
-    axios.post(`http://localhost:5000/reviews`, data).then((res) => {
-      // /${(id = services.length + 1)}
-      console.log(res);
-      if (res.data.insertedId) {
-        alert("Data added successfully");
-        reset();
-      }
-    });
+    axios
+      .post(`https://shielded-forest-05561.herokuapp.com/reviews`, data)
+      .then((res) => {
+        // /${(id = services.length + 1)}
+        console.log(res);
+        if (res.data.insertedId) {
+          alert("Data added successfully");
+          reset();
+        }
+      });
   };
   return (
     <Container>

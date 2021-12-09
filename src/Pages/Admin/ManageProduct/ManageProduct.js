@@ -38,7 +38,10 @@ const ManageProduct = () => {
     alert("Are You Sure To DELETE this ORDER");
 
     axios
-      .delete(`http://localhost:5000/services/${id}`, services)
+      .delete(
+        `https://shielded-forest-05561.herokuapp.com/services/${id}`,
+        services
+      )
       .then((res) => {
         const remaining = services.filter((service) => service._id !== id);
         setServices(remaining);

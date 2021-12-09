@@ -13,13 +13,13 @@ const AllOrder = () => {
   const [orders, setOrder] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders`)
+    fetch(`https://shielded-forest-05561.herokuapp.com/orders`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);
   // const handleDelete = (id) => {
   //   alert("Are You Sure To DELETE this ORDER");
-  //   axios.delete(`http://localhost:5000/orders/${id}`, orders).then((res) => {
+  //   axios.delete(`https://shielded-forest-05561.herokuapp.com/orders/${id}`, orders).then((res) => {
   //     // console.log(res);
   //     const remaining = orders.filter((order) => order._id !== id);
   //     setOrder(remaining);
@@ -27,11 +27,13 @@ const AllOrder = () => {
   // };
   const handleUpdate = (id) => {
     alert("Are You Sure To Update this ORDER status");
-    axios.put(`http://localhost:5000/orders/${id}`, orders).then((res) => {
-      console.log(res);
-      const remaining = orders.filter((order) => order._id !== id);
-      setOrder(remaining);
-    });
+    axios
+      .put(`https://shielded-forest-05561.herokuapp.com/orders/${id}`, orders)
+      .then((res) => {
+        console.log(res);
+        const remaining = orders.filter((order) => order._id !== id);
+        setOrder(remaining);
+      });
   };
   // react animation
   const styles = useSpring({
